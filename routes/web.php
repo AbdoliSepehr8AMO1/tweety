@@ -17,9 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//home route
+//home route + middleware voor security
+Route::middleware('auth')->group(function(){
+
 Route::post('/tweets', 'TweetsController@store')->name('home');
 Route::post('/tweets', 'TweetsController@store');
+});
 
 Auth::routes();
 
