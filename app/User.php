@@ -69,8 +69,6 @@ class User extends Authenticatable
         );
     }
 
-
-    //route model binding
     public function getRouteKeyName()
     {
         return 'name';

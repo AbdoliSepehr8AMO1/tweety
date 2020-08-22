@@ -174,7 +174,7 @@
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="343" />
     <option name="y" value="29" />
     <option name="width" value="963" />

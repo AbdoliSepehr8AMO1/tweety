@@ -6,8 +6,6 @@
             class="mb-2"
         >
 
-        <!-- main container container -->
-
         <div class="flex justify-between items-center mb-4">
             <div>
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
@@ -26,8 +24,6 @@
             </div>
         </div>
 
-
-        <!-- discription container -->
         <p class="text-sm">
             The name’s Bugs. Bugs Bunny. Don’t wear it out. Bugs is an anthropomorphic gray
             and white rabbit or hare who is famous for his flippant, insouciant personality.
@@ -35,7 +31,6 @@
             and his catch phrase "Eh...What's up, doc?"
         </p>
 
-        <!-- avatar container -->
         <img
             src="{{ $user->avatar }}"
             alt=""
