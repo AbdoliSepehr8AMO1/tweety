@@ -14,19 +14,13 @@ trait Followable
         return $this->follows()->detach($user);
     }
 
-
-
     public function toggleFollow(User $user)
     {
         $this->follows()->toggle($user);
     }
 
-
-    //get a collection of everyone that user follows and check if it contains
     public function following(User $user)
     {
-
-        //check if the record user id exist
         return $this->follows()
             ->where('following_user_id', $user->id)
             ->exists();

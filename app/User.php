@@ -55,7 +55,6 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        //latset method is voor orde by date so the newest tweet will be presented at the top
         return $this->hasMany(Tweet::class)->latest();
     }
 

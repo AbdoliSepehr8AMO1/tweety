@@ -29,8 +29,6 @@
                     </a>
                 @endcan
 
-
-                <!-- this will use the follow-button componenet -->
                 <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
