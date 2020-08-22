@@ -6,6 +6,8 @@
             class="mb-2"
         >
 
+        <!-- main container container -->
+
         <div class="flex justify-between items-center mb-4">
             <div>
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
@@ -31,6 +33,7 @@
             and his catch phrase "Eh...What's up, doc?"
         </p>
 
+        <!-- avatar container -->
         <img
             src="{{ $user->avatar }}"
             alt=""
