@@ -17,6 +17,13 @@ class TweetsController extends Controller
             'body' => $attributes['body']
         ]);
 
+        public function index()
+    {
+        return view('home', [
+            'tweets' => auth()->user()->timeline()
+        ]);
+    }
+
         return redirect('/home');
     }
 }
