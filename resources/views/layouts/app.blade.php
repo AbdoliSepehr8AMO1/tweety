@@ -20,6 +20,8 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body>
+
+<!--- logo-->
     <div id="app">
         <section class="px-8 py-4 mb-6">
             <header class="container mx-auto">
