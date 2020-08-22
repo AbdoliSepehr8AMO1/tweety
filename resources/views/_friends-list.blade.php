@@ -7,11 +7,14 @@
             <li class="mb-4">
                 <div class="flex items-center text-sm">
                     <img
+                            <!--users email adres -->
                         src="{{ $user->avatar }}"
                         alt=""
                         class="rounded-full mr-2"
                     >
 
+
+                    <!-- usersname-->
                     {{ $user->name }}
                 </div>
             </li>
