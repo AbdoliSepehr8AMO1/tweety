@@ -26,6 +26,8 @@
             </div>
         </div>
 
+
+        <!-- discription container -->
         <p class="text-sm">
             The name’s Bugs. Bugs Bunny. Don’t wear it out. Bugs is an anthropomorphic gray
             and white rabbit or hare who is famous for his flippant, insouciant personality.
