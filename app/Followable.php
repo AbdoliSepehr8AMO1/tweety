@@ -14,6 +14,8 @@ trait Followable
         return $this->follows()->detach($user);
     }
 
+
+
     public function toggleFollow(User $user)
     {
         $this->follows()->toggle($user);
