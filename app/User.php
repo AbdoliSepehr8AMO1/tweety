@@ -44,6 +44,7 @@ class User extends Authenticatable
 
     public function timeline()
     {
+        //include all the users tweet as well as the tweets of everyone they follow in decending order by date
         return Tweet::where('user_id', $this->id)->latest()->get();
     }
 
