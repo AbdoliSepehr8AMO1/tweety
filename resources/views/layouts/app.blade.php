@@ -23,9 +23,12 @@
 
 <!--- logo-->
     <div id="app">
+
+
         <section class="px-8 py-4 mb-6">
             <header class="container mx-auto">
                 <h1>
+
                     <img
                         src="/images/logo.svg"
                         alt="Tweety"
