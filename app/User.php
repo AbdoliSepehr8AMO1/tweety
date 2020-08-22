@@ -52,6 +52,8 @@ class User extends Authenticatable
         return $this->follows()->save($user);
     }
 
+    // all the users that you follow
+
     public function follows()
     {
         return $this->belongsToMany(
