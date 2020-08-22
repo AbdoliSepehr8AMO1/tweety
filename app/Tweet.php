@@ -9,7 +9,7 @@ class Tweet extends Model
     // for protection
     protected $guarded = [];
 
-    // tweet model
+    // if a tweet belongs to a user we have a (belogns to relationshio)
     public function user()
     {
         return $this->belongsTo(User::class);
