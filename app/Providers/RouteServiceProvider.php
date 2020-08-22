@@ -21,7 +21,6 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    //hard coded path
     public const HOME = '/tweets';
 
     /**

@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -39,24 +38,27 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return "https://i.pravatar.cc/40?u=".$this->email;
+        return "https://i.pravatar.cc/200?u=".$this->email;
     }
 
     public function timeline()
     {
-        //include all the users tweet as well as the tweets of everyone they follow in decending order by date
-        // give me all the tweets where the user id is in this array that we created
-        return Tweet::where('user_id', $this->id)->latest()->get();
+        $friends = $this->follows()->pluck('id');
+
+        return Tweet::whereIn('user_id', $friends)
+            ->orWhere('user_id', $this->id)
+            ->latest()->get();
     }
 
-
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
 
     public function follow(User $user)
     {
         return $this->follows()->save($user);
     }
-
-    // all the users that you follow
 
     public function follows()
     {
@@ -65,5 +67,10 @@ class User extends Authenticatable
             'follows',
             'user_id', 'following_user_id'
         );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }
