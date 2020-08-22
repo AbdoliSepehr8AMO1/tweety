@@ -7,25 +7,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast to native types.
@@ -36,9 +32,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttribute()
+    public function getAvatarAttribute($value)
     {
-        return "https://i.pravatar.cc/200?u=".$this->email;
+        return asset($value ?: '/images/default-avatar.jpeg');
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
@@ -47,30 +48,25 @@ class User extends Authenticatable
 
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->get();
+            ->withLikes()
+            ->orderByDesc('id')
+            ->paginate(50);
     }
 
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function follow(User $user)
+    public function likes()
     {
-        return $this->follows()->save($user);
+        return $this->hasMany(Like::class);
     }
 
-    public function follows()
+    public function path($append = '')
     {
-        return $this->belongsToMany(
-            User::class,
-            'follows',
-            'user_id', 'following_user_id'
-        );
-    }
+        $path = route('profile', $this->username);
 
-    public function getRouteKeyName()
-    {
-        return 'name';
+        return $append ? "{$path}/{$append}" : $path;
     }
 }
