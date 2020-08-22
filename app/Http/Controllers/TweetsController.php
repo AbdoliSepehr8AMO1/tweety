@@ -19,6 +19,7 @@ class TweetsController extends Controller
             'body' => $attributes['body']
         ]);
 
+        // send the tweet to the homepage
         return redirect('/home');
     }
 }
