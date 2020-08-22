@@ -9,6 +9,8 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+    //load the user's timeline
     public function index()
     {
         return view('home', [
