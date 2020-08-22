@@ -3,6 +3,8 @@
 
     <ul>
         @foreach (range(1, 8) as $index)
+
+            <!-- center the image -->
             <li class="mb-4">
                 <div class="flex items-center text-sm">
                     <img
