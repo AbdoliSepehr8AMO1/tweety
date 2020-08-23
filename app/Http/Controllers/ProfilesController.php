@@ -25,6 +25,8 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
+
+    //validation before updating the users data
     public function update(User $user)
     {
         $attributes = request()->validate([
