@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 trait Likable
 {
 
-
+    // what this allows you to do is to build dymanicly your querys
     public function scopeWithLikes(Builder $query)
     {
         $query->leftJoinSub(
