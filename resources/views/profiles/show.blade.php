@@ -20,6 +20,7 @@
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
 
+            <!-- if the user is auth then it can be eddited-->
             <div class="flex">
                 @can ('edit', $user)
                     <a href="{{ $user->path('edit') }}"
