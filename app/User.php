@@ -37,6 +37,7 @@ class User extends Authenticatable
         return asset($value ?: '/images/default-avatar.jpeg');
     }
 
+    //bcrypyt method to hash the password
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
