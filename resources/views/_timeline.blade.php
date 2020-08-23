@@ -1,4 +1,6 @@
 <div class="border border-gray-300 rounded-lg">
+
+        <!-- if we have tweets show them and if we dont show no tweets yet -->
     @forelse ($tweets as $tweet)
         @include('_tweet')
     @empty
