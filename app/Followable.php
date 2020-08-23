@@ -14,6 +14,8 @@ trait Followable
         return $this->follows()->detach($user);
     }
 
+
+    // toggle for the given user / is the user follows give the option to unfollow if and the other way
     public function toggleFollow(User $user)
     {
         $this->follows()->toggle($user);
