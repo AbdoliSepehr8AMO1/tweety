@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait Likable
 {
+
+
     public function scopeWithLikes(Builder $query)
     {
         $query->leftJoinSub(
@@ -16,6 +18,7 @@ trait Likable
         );
     }
 
+    // show the user by who the post is liked
     public function isLikedBy(User $user)
     {
         return (bool) $user->likes
