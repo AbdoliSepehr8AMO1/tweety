@@ -43,12 +43,15 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+
+
     public function timeline()
     {
         $friends = $this->follows()->pluck('id');
 
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
+            // when you load the users time line now you will include the likes
             ->withLikes()
             ->orderByDesc('id')
             ->paginate(50);
