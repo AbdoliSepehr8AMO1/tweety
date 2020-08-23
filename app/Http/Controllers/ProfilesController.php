@@ -38,6 +38,8 @@ class ProfilesController extends Controller
                 Rule::unique('users')->ignore($user),
             ],
             'name' => ['string', 'required', 'max:255'],
+
+            // avatar is not required because then everytime you update your profile you also need a avatar image
             'avatar' => ['image'],
             'email' => [
                 'string',
