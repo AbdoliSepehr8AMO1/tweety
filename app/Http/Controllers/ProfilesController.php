@@ -18,6 +18,8 @@ class ProfilesController extends Controller
         ]);
     }
 
+
+    // you can not edit somone else profile with this code voor securtiy
     public function edit(User $user)
     {
         return view('profiles.edit', compact('user'));
