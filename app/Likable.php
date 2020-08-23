@@ -44,6 +44,7 @@ trait Likable
 
 
 
+    // give the like method a false
     public function dislike($user = null)
     {
         return $this->like($user, false);
