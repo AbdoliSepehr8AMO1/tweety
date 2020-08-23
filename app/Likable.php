@@ -27,6 +27,7 @@ trait Likable
             ->count();
     }
 
+    // show the user by who the post is disliked
     public function isDislikedBy(User $user)
     {
         return (bool) $user->likes
