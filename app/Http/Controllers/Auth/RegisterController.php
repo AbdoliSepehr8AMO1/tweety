@@ -49,6 +49,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // form validation for registration username id has to be unique and max 255
         return Validator::make($data, [
             'username' => [
                 'required',
