@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// only auth users can acces this pages
 Route::middleware('auth')->group(function () {
     Route::get('/tweets', 'TweetsController@index')->name('home');
     Route::post('/tweets', 'TweetsController@store');
