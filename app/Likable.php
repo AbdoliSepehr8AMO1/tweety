@@ -36,6 +36,7 @@ trait Likable
             ->count();
     }
 
+    // likes has many relationship
     public function likes()
     {
         return $this->hasMany(Like::class);
