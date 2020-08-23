@@ -57,6 +57,8 @@ class ProfilesController extends Controller
             ],
         ]);
 
+
+        // after you run this will save the image and return the path to where the image is stored
         if (request('avatar')) {
             $attributes['avatar'] = request('avatar')->store('avatars');
         }
