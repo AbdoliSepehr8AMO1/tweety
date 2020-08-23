@@ -42,11 +42,14 @@ trait Likable
         return $this->hasMany(Like::class);
     }
 
+
+
     public function dislike($user = null)
     {
         return $this->like($user, false);
     }
 
+    // if the user likes and it's true then add the  user_id on the liked column
     public function like($user = null, $liked = true)
     {
         $this->likes()->updateOrCreate(
